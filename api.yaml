@@ -1,0 +1,140 @@
+
+swagger: 2.0,
+info : 
+    title : This is the my swagger UI.
+    description: This is documentation of my swagger made by me.
+    version : 1
+    
+schemes: [http,https]
+
+paths:
+    /All_data:
+        get: 
+           tags: [Teachers]
+           summary : get information of all teachers.
+           responses:  
+                200:
+                   description: success
+                400:
+                   description: User Error
+    # 
+    /get_data/{id} :
+        get :
+            tags: [Teachers]
+            summary : get information of a single teacher.
+            parameters : 
+             - name : id
+               in : path
+               required : true
+                schema : 
+                 type : integer
+            responses :
+                 200 :
+                    description : success
+                 400:  
+                     description : User Error
+    # 
+    /insert_data:
+        post : 
+            tags : [Teachers]
+            summary : insert info of a teacher.
+            produces :
+                - application/json
+            consumes :
+                - application/json
+            parameters :
+            - in : body
+              name : user
+              schema : 
+                $ref : "#/components/schemas/user"
+                # properties :
+                # #   id : 
+                # #     type : integer
+                #   name : 
+                #     type : string
+                #   school_name : 
+                #     type : string
+                #   subject :
+                #     type : string
+                #    
+            responses : 
+                200 :
+                   description : success
+                400 :
+                   description : User Error
+# 
+    # /teacher/{id} : 
+    #     delete :
+    #         tags : [Teachers] 
+    #         summary : Delete data of a teacher by id
+    #         parameters : 
+    #           - in : path
+    #             name : id
+    #             required : true
+    #             schema : 
+    #               type : integer
+    #         responses :
+    #              200 :
+    #                 description : success
+    #              400:  
+    #                  description : User Error
+    # # 
+
+    /update_data/{id} :
+        put : 
+            tags : [Teachers] 
+            summary : update data of a teacher by id
+            consumes : 
+                - application/json
+            produces :
+                - application/json
+            parameters : 
+              - in : path
+                name : id
+                required : true
+                schema : 
+                  type : integer
+              - in : body
+                name : body
+                required : true
+                description : body object
+                schema:
+                   $ref : "#components/schemas/user"
+            responses : 
+                200 :
+                   description : success
+                400 : 
+                    description : user error
+
+
+    /delete_data/{id} : 
+        delete :
+            tags : [Teachers] 
+            summary : Delete data of a teacher by id
+            parameters : 
+              - in : path
+                name : id
+                required : true
+                schema : 
+                  type : integer
+            responses :
+                 200 :
+                    description : success
+                 400:  
+                     description : User Error
+    # 
+
+components:
+  schemas : 
+    user :
+     type : object
+     properties :
+        # id : 
+        #    type : integer
+        name : 
+           type : string
+        school_name : 
+           type : string
+        subject : 
+           type : string
+             

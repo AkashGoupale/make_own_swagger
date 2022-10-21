@@ -1,0 +1,20 @@
+{
+  "name": "swagger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "knex": "^2.3.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.20",
+    "swagger-ui-express": "^4.5.0",
+    "yamljs": "^0.3.0"
+  }
+}
